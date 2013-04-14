@@ -1,0 +1,20 @@
+{
+    "name" : "codevro",
+    "keywords": ["code", "luhn", "siret", "siren", "rib"],
+    "version" : "0.1.0",
+    "title" : "jQuery Codevro",
+    "description" : "jQuery Codevro deal with many types of code.",
+    "author" : {"name": "Michel Petit", "email": "petit.michel@gail.com"},
+    "licenses": [
+        {
+        "type": "MIT",
+        "url": "https://github.com/jquery/jquery-color/blob/2.1.2/MIT-LICENSE.txt"
+        }
+    ],
+    "bugs": "https://github.com/malenkiki/codevro.js/issues",
+    "homepage": "https://github.com/malenkiki/codevro.js",
+    "docs": "https://github.com/malenkiki/codevro.js",
+    "dependencies": {
+        "jquery": ">=1.6"
+    }
+}
