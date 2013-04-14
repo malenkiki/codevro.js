@@ -23,7 +23,7 @@ Have more options than Luhn:
 FR: Siret
 ---------
 
-Same options as Siren, bug one more is available:
+Same options as Siren, but one more is available:
 
 
     $('element').codevro( 'frSiret', {required: true, onValidate: myCallback, getPlaceRank: myOtherCallback} )
