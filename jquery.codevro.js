@@ -200,9 +200,87 @@
                     }
                 }
             })
-        }
-    }
+        },
 
+        /**
+         * Define element as a french RIB bank code.
+         *
+         * RIB code identifies french bank account.
+         *
+         * This code is a list of numbers, sometimes letters too. The length is
+         * 23 characters.
+         *
+         * Parameters for options are:
+         *
+         * <ul>
+         * <li>required, a boolean, self explain I think
+         * <li>check, a boolean, to check the code or not
+         * <li>format, a boolean, to format the code or not
+         * <li>separator, a string used when formating code to separate digit blocks
+         * <li>onValide, a function to call when after code checking taking as option the result as a boolean
+         * <li>getCodeBanque, a function to call when bank code number is returned after checking
+         * <li>getCodeGuichet, a function to call when counter code number is returned after checking
+         * <li>getNumeroDeCompte, a function to call when accunt number number is returned after checking
+         * <li>getCleRib, a function to call when RIB key is returned after checking
+         * </ul>
+         *
+         * @example $(element).codevro('frSiren', options)
+         * @param {Object} options
+         * @return {Object}
+         */
+        frRib: function(options){
+            var defaults = {
+                required: false,
+                check: true,
+                format: true,
+                separator: ' ',
+                onValidate: function(){},
+                getCodeBanque: function(){},
+                getCodeGuichet: function(){},
+                getNumeroDeCompte: function(){},
+                getCleRib: function(){}
+            }
+
+            options = $.extend({}, defaults, options)
+
+
+            return this.each(function(){
+                var code = cleanNoDigit($(this).val())
+                var rib = new Rib(code)
+
+                var test = rib.check()
+
+                if(options.check){
+                    options.onValidate.apply(this, [test])
+                }
+
+                options.getCodeBanque.apply(this, [rib.getCodeBanque()])
+                options.getCodeGuichet.apply(this, [rib.getCodeGuichet()])
+                options.getNumeroDeCompte.apply(this, [rib.getNumeroDeCompte()])
+                options.getCleRib.apply(this, [rib.getCleRib()])
+
+                if(options.format){
+                    if(test){
+                        var f = []
+                        f.push(rib.getCodeBanque())
+                        f.push(rib.getCodeGuichet())
+                        f.push(rib.getNumeroDeCompte())
+                        f.push(rib.getCleRib())
+
+                        $(this).val(f.join(options.separator))
+                    }
+                }
+                else {
+                    if(test){
+                        $(this).val(code)
+                    }
+                }
+            })
+            
+        }
+        
+    }
+        
 
     /**
      * Codevro allow you to define element as a specific code.
@@ -298,6 +376,127 @@
          this.check = function(){
              return !this.modulo10()
          }
+     }
+
+
+
+    /**
+     * RIB
+     *
+     * @name Rib
+     * @class Rib
+     * @constructor
+     * @param {String} str Code value
+     */
+     var Rib = function(str){
+         this.value = ''
+         this.length = 0
+
+         if(typeof str == 'string' && str.length){
+             this.value = new String(str)
+             this.length = str.length
+         }
+         else {
+             throw 'Code must be a non null string.'
+         }
+
+         this.toString = function(){
+             return this.value
+         }
+
+         /**
+          * Check if the code if valid or not.
+          *
+          * @return {Number} True if code is valid
+          */
+         this.check = function(){
+             var strAccount = ''
+             var str = this.getNumeroDeCompte()
+             var strRib = ''
+
+             for(var i in str){
+                 var c = str[i]
+
+                 if(c.match(/[^0-9]/)){
+                     var intCProv = c.charCodeAt(0) - 64
+
+                     var intC = ((intCProv + Math.pow(2, (intCProv - 10) / 9 )) % 10)
+                     intC += intCProv > 18 && intCProv < 25 ? 1 : 0
+
+                     c = new String(intC)
+                 }
+
+                 strAccount += c
+             }
+
+             strRib += this.getCodeBanque() + ''
+             strRib += this.getCodeGuichet() + ''
+             strRib += strAccount + ''
+             strRib += this.getCleRib() + ''
+
+             return modulo(strRib, 97) == 0 && this.length == 23
+         }
+
+         this.getCodeBanque = function(){
+             return this.value.substr(0 , 5);
+         }
+
+         this.getCodeGuichet = function(){
+             return this.value.substr(5, 5);
+         }
+
+         this.getNumeroDeCompte = function(){
+             return this.value.substr(10, 11);
+         }
+
+         this.getCleRib = function(){
+             return this.value.substr(21, 2);
+         }
+     }
+
+
+
+
+     /**
+      * Modulo for big value.
+      *
+      * Avoiding some issues with javascript and modulo calculus of big value.
+      *
+      * See http://stackoverflow.com/questions/929910/modulo-in-javascript-large-number
+      *
+      * @lends _private_methods
+      * @param {String} divident
+      * @param {Number} divisor
+      */
+     var modulo = function(divident, divisor) {
+         var cDivident = ''
+         var cRest = ''
+
+         divident = divident + ''
+
+         for (var i in divident ) {
+             var cChar = divident[i]
+             var cOperator = cRest + '' + cDivident + '' + cChar
+
+             if ( cOperator < parseInt(divisor) ) {
+                 cDivident += '' + cChar
+             }
+             else {
+                 cRest = cOperator % divisor
+                 if ( cRest == 0 ) {
+                     cRest = ''
+                 }
+                 cDivident = ''
+             }
+
+         }
+         cRest += '' + cDivident
+         
+         if (cRest == '') {
+             cRest = 0
+         }
+
+         return cRest
      }
 
 

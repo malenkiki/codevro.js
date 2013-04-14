@@ -27,3 +27,12 @@ Same options as Siren, bug one more is available:
 
 
     $('element').codevro( 'frSiret', {required: true, onValidate: myCallback, getPlaceRank: myOtherCallback} )
+
+FR: RIB
+-------
+
+RIB take same options as Siren plus some others: `getCodeBanque`, `getCodeGuichet`, `getNumeroDeCompte` and `getCleRib`
+
+    $('element').codevro( 'frRib', {required: true, getCleRib: myCallback} )
+
+
