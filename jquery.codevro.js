@@ -277,7 +277,57 @@
                 }
             })
             
-        }
+        },
+
+        /**
+         * Define element as a credit card number.
+         *
+         * @example $(element).codevro('intlCreditCard', options)
+         * @param {Object} options
+         * @return {Object}
+         */
+        intlCreditCard: function(options){
+            var defaults = {
+                required: false,
+                check: true,
+                format: true,
+                separator: ' ',
+                onValidate: function(){}
+            }
+
+            options = $.extend({}, defaults, options)
+
+            return this.each(function(){
+                var code = cleanNoDigit($(this).val())
+                var luhn = new Luhn(code)
+
+                var test = luhn.check()
+
+                if(options.check){
+                    options.onValidate.apply(this, [test])
+                }
+                
+                if(test){
+                    if(options.format){
+                        var str = ''
+                        var k = 0
+                        for(var c in code) {
+                            k = k + 1
+                                str += code.charAt(c) + ''
+
+                            if(k % 4 == 0) {
+                                str += options.separator
+                            }
+                        }
+
+                        $(this).val(str.replace(/[^0-9]+$/, ''))
+                    }
+                    else {
+                        $(this).val(code)
+                    }
+                }
+            })
+        },
         
     }
         

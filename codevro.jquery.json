@@ -1,7 +1,7 @@
 {
     "name" : "codevro",
-    "keywords": ["code", "luhn", "siret", "siren", "rib"],
-    "version" : "0.1.0",
+    "keywords": ["code", "luhn", "siret", "siren", "rib", "form", "input"],
+    "version" : "0.1.1",
     "title" : "jQuery Codevro",
     "description" : "jQuery Codevro deal with many types of code.",
     "author" : {"name": "Michel Petit", "email": "petit.michel@gail.com"},

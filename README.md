@@ -35,4 +35,11 @@ RIB take same options as Siren plus some others: `getCodeBanque`, `getCodeGuiche
 
     $('element').codevro( 'frRib', {required: true, getCleRib: myCallback} )
 
+INTL: Credit Card Number
+------------------------
+
+Check if cardit card number is valid and format it by adding space by default after each ' digits block.
+
+    $('element').codevro( 'intlCreditCard', {onValidate: myCallback} )
+ 
 
