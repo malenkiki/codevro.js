@@ -280,6 +280,72 @@
         },
 
         /**
+         * Define element as a french NIR code.
+         *
+         *
+         * Parameters for options are:
+         *
+         * <ul>
+         * <li>required, a boolean, self explain I think
+         * <li>check, a boolean, to check the code or not
+         * <li>format, a boolean, to format the code or not
+         * <li>separator, a string used when formating code to separate digit blocks
+         * <li>onValide, a function to call when after code checking taking as option the result as a boolean
+         * <li>getInformation, a function to call on return to use some informations about this code
+         * </ul>
+         *
+         * @example $(element).codevro('frNir', options)
+         * @param {Object} options
+         * @return {Object}
+         */
+        frNir: function(options){
+            var defaults = {
+                required: false,
+                check: true,
+                format: true,
+                separator: ' ',
+                onValidate: function(){},
+                getInformation: function(){}
+            }
+
+            options = $.extend({}, defaults, options)
+
+
+            return this.each(function(){
+                var code = $(this).val().replace(/[^ABab0-9]/g, '')
+                var nir = new Nir(code)
+
+                var test = nir.check()
+
+                if(options.check){
+                    options.onValidate.apply(this, [test])
+                }
+
+                options.getInformation.apply(this, [nir.getInformation()])
+
+                if(options.format){
+                    if(test){
+                        var info = nir.getInformation()
+                        var f = []
+                        f.push(info.gender == 'man' ? '1' : '2')
+                        f.push(info.year)
+                        f.push(info.month)
+                        f.push(info.department)
+                        f.push(info.city)
+                        f.push(info.rank)
+                        f.push(info.key)
+                        $(this).val(f.join(options.separator))
+                    }
+                }
+                else {
+                    if(test){
+                        $(this).val(code)
+                    }
+                }
+            })
+            
+        },
+        /**
          * Define element as a credit card number.
          *
          * @example $(element).codevro('intlCreditCard', options)
@@ -505,6 +571,93 @@
      }
 
 
+    /**
+     * NIR
+     *
+     * @name Nir
+     * @class Nir
+     * @constructor
+     * @param {String} str Code value
+     */
+     var Nir = function(str){
+         this.value = ''
+         this.length = 0
+
+         if(typeof str == 'string' && str.length){
+             this.value = new String(str)
+             this.length = str.length
+         }
+         else {
+             throw 'Code must be a non null string.'
+         }
+
+         this.toString = function(){
+             return this.value
+         }
+
+         /**
+          * Check if the code if valid or not.
+          *
+          * @return {Number} True if code is valid
+          */
+         this.check = function(){
+             var key = this.value.substr(13, 2)
+             var strNir = this.adapt(this.value)
+             return (97 - modulo(strNir, 97)) == key && this.length == 15
+         }
+
+         /**
+          * Change the code to follow some rules used for Corsica. In Corsica,
+          * two letters are used into the code: A and B. This letter must be
+          * replaced by a zero and in case of A, substract by 1.000.000 or
+          * 2.000.000 for B.
+          *
+          * @param {String} str The code to adapt
+          * @return {String} The adapted code
+          */
+         this.adapt = function(str){
+             var str = str.substr(0, 13)
+             var substract = 0
+             if(str.match(/[aA]g/)) substract = 1000000
+             if(str.match(/[bB]g/)) substract = 2000000
+             var int = parseInt(str.replace(/ABab/g, '0'))
+
+             if(substract > 0){
+                 return new String(int - substract)
+             }
+             else {
+                 return str
+             }
+         }
+
+         /**
+          * Returns some structured informations about this NIR code.
+          *
+          * Informations returned are:
+          *
+          * <ul>
+          * <li>gender: a string like man or woman.
+          * <li>year: a 2-digits string for the birth year.
+          * <li>month: Birth month in two digits.
+          * <li>department: the "département" code.
+          * <li>city: City of birth code.
+          * <li>rank: Ranking among the list of births
+          * <li>key: The verification key 
+          * </ul>
+          * @return {Object}
+          */
+         this.getInformation = function(){
+            return {
+                gender: this.value.charAt(0) == '1' ? 'man' : 'woman',
+                year: this.value.substr(1, 2) + '',
+                month: this.value.substr(3, 2) + '',
+                department: this.value.substr(5, 2) + '',
+                city: this.value.substr(7, 3) + '',
+                rank: this.value.substr(10, 3) + '',
+                key: this.value.substr(13) + ''
+            }
+         }
+     }
 
 
      /**

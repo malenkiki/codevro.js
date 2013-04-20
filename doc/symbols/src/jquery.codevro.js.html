@@ -284,239 +284,442 @@
 <span class='line'>277</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="WHIT">
 <span class='line'>278</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="WHIT">
 <span class='line'>279</span> </span><span class="WHIT">            
-<span class='line'>280</span>         </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>281</span> </span><span class="WHIT">        
-<span class='line'>282</span>     </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>283</span> </span><span class="WHIT">        
-<span class='line'>284</span> 
-<span class='line'>285</span>     </span><span class="COMM">/**
-<span class='line'>286</span>      * Codevro allow you to define element as a specific code.
-<span class='line'>287</span>      *
-<span class='line'>288</span>      * @class codevro
-<span class='line'>289</span>      * @memberOf $.fn
-<span class='line'>290</span>      * @param {String} methodOrOptions 
-<span class='line'>291</span>      */</span><span class="WHIT">
-<span class='line'>292</span> </span><span class="WHIT">    </span><span class="NAME">$.fn.codevro</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">methodOrOptions</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>293</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="WHIT"> </span><span class="NAME">methods</span><span class="PUNC">[</span><span class="NAME">methodOrOptions</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>294</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">methods</span><span class="PUNC">[</span><span class="WHIT"> </span><span class="NAME">methodOrOptions</span><span class="WHIT"> </span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">apply</span><span class="PUNC">(</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">Array.prototype.slice.call</span><span class="PUNC">(</span><span class="WHIT"> </span><span class="NAME">arguments</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>295</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>296</span> </span><span class="WHIT">        </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="WHIT"> </span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">methodOrOptions</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="STRN">'object'</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="WHIT"> </span><span class="NAME">methodOrOptions</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>297</span> </span><span class="WHIT">            </span><span class="COMM">// Default to "init"</span><span class="WHIT">
-<span class='line'>298</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">methods.init.apply</span><span class="PUNC">(</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">arguments</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>299</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>300</span> </span><span class="WHIT">        </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>301</span> </span><span class="WHIT">            </span><span class="NAME">$.error</span><span class="PUNC">(</span><span class="WHIT"> </span><span class="STRN">'Method '</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT">  </span><span class="NAME">method</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">' does not exist on jQuery.codevro'</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>302</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">    
-<span class='line'>303</span>     </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>304</span> 
-<span class='line'>305</span> 
-<span class='line'>306</span> 
-<span class='line'>307</span> 
-<span class='line'>308</span> 
-<span class='line'>309</span> 
+<span class='line'>280</span>         </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>281</span> 
+<span class='line'>282</span> </span><span class="WHIT">        </span><span class="COMM">/**
+<span class='line'>283</span>          * Define element as a french NIR code.
+<span class='line'>284</span>          *
+<span class='line'>285</span>          *
+<span class='line'>286</span>          * Parameters for options are:
+<span class='line'>287</span>          *
+<span class='line'>288</span>          * &lt;ul>
+<span class='line'>289</span>          * &lt;li>required, a boolean, self explain I think
+<span class='line'>290</span>          * &lt;li>check, a boolean, to check the code or not
+<span class='line'>291</span>          * &lt;li>format, a boolean, to format the code or not
+<span class='line'>292</span>          * &lt;li>separator, a string used when formating code to separate digit blocks
+<span class='line'>293</span>          * &lt;li>onValide, a function to call when after code checking taking as option the result as a boolean
+<span class='line'>294</span>          * &lt;li>getInformation, a function to call on return to use some informations about this code
+<span class='line'>295</span>          * &lt;/ul>
+<span class='line'>296</span>          *
+<span class='line'>297</span>          * @example $(element).codevro('frNir', options)
+<span class='line'>298</span>          * @param {Object} options
+<span class='line'>299</span>          * @return {Object}
+<span class='line'>300</span>          */</span><span class="WHIT">
+<span class='line'>301</span> </span><span class="WHIT">        </span><span class="NAME">frNir</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>302</span> </span><span class="WHIT">            </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">defaults</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>303</span> </span><span class="WHIT">                </span><span class="NAME">required</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>304</span> </span><span class="WHIT">                </span><span class="NAME">check</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>305</span> </span><span class="WHIT">                </span><span class="NAME">format</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>306</span> </span><span class="WHIT">                </span><span class="NAME">separator</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">' '</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>307</span> </span><span class="WHIT">                </span><span class="NAME">onValidate</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>308</span> </span><span class="WHIT">                </span><span class="NAME">getInformation</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>309</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="WHIT">
 <span class='line'>310</span> 
-<span class='line'>311</span> 
+<span class='line'>311</span> </span><span class="WHIT">            </span><span class="NAME">options</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">$.extend</span><span class="PUNC">(</span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">defaults</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">)</span><span class="WHIT">
 <span class='line'>312</span> 
 <span class='line'>313</span> 
-<span class='line'>314</span> 
-<span class='line'>315</span> 
-<span class='line'>316</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'>317</span>      * @lends _private_methods
-<span class='line'>318</span>      */</span><span class="WHIT">
+<span class='line'>314</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.each</span><span class="PUNC">(</span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>315</span> </span><span class="WHIT">                </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">code</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">$</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">val</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">replace</span><span class="PUNC">(</span><span class="REGX">/[^ABab0-9]/g</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>316</span> </span><span class="WHIT">                </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">nir</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Nir</span><span class="PUNC">(</span><span class="NAME">code</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>317</span> 
+<span class='line'>318</span> </span><span class="WHIT">                </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">test</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">nir.check</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
 <span class='line'>319</span> 
-<span class='line'>320</span> 
-<span class='line'>321</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'>322</span>      * The Luhn algorithm.
-<span class='line'>323</span>      *
-<span class='line'>324</span>      * @name Luhn
-<span class='line'>325</span>      * @class Luhn
-<span class='line'>326</span>      * @constructor
-<span class='line'>327</span>      * @param {String} str Code value
-<span class='line'>328</span>      */</span><span class="WHIT">
-<span class='line'>329</span> </span><span class="WHIT">     </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">Luhn</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">str</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>330</span> </span><span class="WHIT">         </span><span class="NAME">this.luhnValue</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
-<span class='line'>331</span> </span><span class="WHIT">         </span><span class="NAME">this.luhnLength</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT">
-<span class='line'>332</span> 
-<span class='line'>333</span> </span><span class="WHIT">         </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">str</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">'string'</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">str.length</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>334</span> </span><span class="WHIT">             </span><span class="NAME">this.luhnValue</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">str</span><span class="WHIT">
-<span class='line'>335</span> </span><span class="WHIT">             </span><span class="NAME">this.luhnLength</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">str.length</span><span class="WHIT">
-<span class='line'>336</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>337</span> </span><span class="WHIT">         </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>338</span> </span><span class="WHIT">             </span><span class="KEYW">throw</span><span class="WHIT"> </span><span class="STRN">'Code must be a non null string.'</span><span class="WHIT">
-<span class='line'>339</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>340</span> 
-<span class='line'>341</span> </span><span class="WHIT">         </span><span class="NAME">this.toString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>342</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.luhnValue</span><span class="WHIT">
-<span class='line'>343</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>344</span> 
-<span class='line'>345</span> </span><span class="WHIT">         </span><span class="COMM">/**
-<span class='line'>346</span>           * Compute modulo 10 using the Luhn algorithm.
-<span class='line'>347</span>           *
-<span class='line'>348</span>           * @return {Number} The modulo 10 result
-<span class='line'>349</span>           */</span><span class="WHIT">
-<span class='line'>350</span> </span><span class="WHIT">         </span><span class="NAME">this.modulo10</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>351</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">code</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.luhnValue.split</span><span class="PUNC">(</span><span class="STRN">''</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">reverse</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
-<span class='line'>352</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">sum</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT">
-<span class='line'>353</span> 
-<span class='line'>354</span> </span><span class="WHIT">             </span><span class="KEYW">for</span><span class="PUNC">(</span><span class="NAME">i</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">code</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>355</span> </span><span class="WHIT">                 </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">digit</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">parseInt</span><span class="PUNC">(</span><span class="NAME">code</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT">
-<span class='line'>356</span> 
-<span class='line'>357</span> </span><span class="WHIT">                 </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="PUNC">(</span><span class="NAME">parseInt</span><span class="PUNC">(</span><span class="NAME">i</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">%</span><span class="WHIT"> </span><span class="NUMB">2</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>358</span> </span><span class="WHIT">                     </span><span class="NAME">digit</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">digit</span><span class="WHIT"> </span><span class="PUNC">*</span><span class="WHIT"> </span><span class="NUMB">2</span><span class="WHIT">
-<span class='line'>359</span> 
-<span class='line'>360</span> </span><span class="WHIT">                     </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">digit</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">9</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>361</span> </span><span class="WHIT">                         </span><span class="NAME">digit</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">digit</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NUMB">9</span><span class="WHIT">
-<span class='line'>362</span> </span><span class="WHIT">                     </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>363</span> </span><span class="WHIT">                 </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>364</span> 
-<span class='line'>365</span> </span><span class="WHIT">                 </span><span class="NAME">sum</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">digit</span><span class="WHIT"> 
-<span class='line'>366</span>              </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>367</span> 
-<span class='line'>368</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">sum</span><span class="WHIT"> </span><span class="PUNC">%</span><span class="WHIT"> </span><span class="NUMB">10</span><span class="WHIT">
-<span class='line'>369</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>370</span> 
-<span class='line'>371</span> </span><span class="WHIT">         </span><span class="COMM">/**
-<span class='line'>372</span>           * Check if the code if valid or not.
-<span class='line'>373</span>           *
-<span class='line'>374</span>           * @return {Number} True if code is valid
-<span class='line'>375</span>           */</span><span class="WHIT">
-<span class='line'>376</span> </span><span class="WHIT">         </span><span class="NAME">this.check</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>377</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">this.modulo10</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
-<span class='line'>378</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>379</span> </span><span class="WHIT">     </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>380</span> 
-<span class='line'>381</span> 
-<span class='line'>382</span> 
-<span class='line'>383</span> </span><span class="WHIT">    </span><span class="COMM">/**
-<span class='line'>384</span>      * RIB
-<span class='line'>385</span>      *
-<span class='line'>386</span>      * @name Rib
-<span class='line'>387</span>      * @class Rib
-<span class='line'>388</span>      * @constructor
-<span class='line'>389</span>      * @param {String} str Code value
-<span class='line'>390</span>      */</span><span class="WHIT">
-<span class='line'>391</span> </span><span class="WHIT">     </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">Rib</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">str</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>392</span> </span><span class="WHIT">         </span><span class="NAME">this.value</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
-<span class='line'>393</span> </span><span class="WHIT">         </span><span class="NAME">this.length</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT">
-<span class='line'>394</span> 
-<span class='line'>395</span> </span><span class="WHIT">         </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">str</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">'string'</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">str.length</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>396</span> </span><span class="WHIT">             </span><span class="NAME">this.value</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">String</span><span class="PUNC">(</span><span class="NAME">str</span><span class="PUNC">)</span><span class="WHIT">
-<span class='line'>397</span> </span><span class="WHIT">             </span><span class="NAME">this.length</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">str.length</span><span class="WHIT">
-<span class='line'>398</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>399</span> </span><span class="WHIT">         </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>400</span> </span><span class="WHIT">             </span><span class="KEYW">throw</span><span class="WHIT"> </span><span class="STRN">'Code must be a non null string.'</span><span class="WHIT">
-<span class='line'>401</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>402</span> 
-<span class='line'>403</span> </span><span class="WHIT">         </span><span class="NAME">this.toString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>404</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.value</span><span class="WHIT">
-<span class='line'>405</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>406</span> 
-<span class='line'>407</span> </span><span class="WHIT">         </span><span class="COMM">/**
-<span class='line'>408</span>           * Check if the code if valid or not.
-<span class='line'>409</span>           *
-<span class='line'>410</span>           * @return {Number} True if code is valid
-<span class='line'>411</span>           */</span><span class="WHIT">
-<span class='line'>412</span> </span><span class="WHIT">         </span><span class="NAME">this.check</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>413</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">strAccount</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
-<span class='line'>414</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">str</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getNumeroDeCompte</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
-<span class='line'>415</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">strRib</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
-<span class='line'>416</span> 
-<span class='line'>417</span> </span><span class="WHIT">             </span><span class="KEYW">for</span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">str</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>418</span> </span><span class="WHIT">                 </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">c</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">str</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="WHIT">
-<span class='line'>419</span> 
-<span class='line'>420</span> </span><span class="WHIT">                 </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">c.match</span><span class="PUNC">(</span><span class="REGX">/[^0-9]/</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>421</span> </span><span class="WHIT">                     </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">intCProv</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">c.charCodeAt</span><span class="PUNC">(</span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NUMB">64</span><span class="WHIT">
+<span class='line'>320</span> </span><span class="WHIT">                </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">options.check</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>321</span> </span><span class="WHIT">                    </span><span class="NAME">options.onValidate.apply</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="NAME">test</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>322</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>323</span> 
+<span class='line'>324</span> </span><span class="WHIT">                </span><span class="NAME">options.getInformation.apply</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="NAME">nir.getInformation</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>325</span> 
+<span class='line'>326</span> </span><span class="WHIT">                </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">options.format</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>327</span> </span><span class="WHIT">                    </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">test</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>328</span> </span><span class="WHIT">                        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">info</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">nir.getInformation</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>329</span> </span><span class="WHIT">                        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">f</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="WHIT">
+<span class='line'>330</span> </span><span class="WHIT">                        </span><span class="NAME">f.push</span><span class="PUNC">(</span><span class="NAME">info.gender</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">'man'</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="STRN">'1'</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'2'</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>331</span> </span><span class="WHIT">                        </span><span class="NAME">f.push</span><span class="PUNC">(</span><span class="NAME">info.year</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>332</span> </span><span class="WHIT">                        </span><span class="NAME">f.push</span><span class="PUNC">(</span><span class="NAME">info.month</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>333</span> </span><span class="WHIT">                        </span><span class="NAME">f.push</span><span class="PUNC">(</span><span class="NAME">info.department</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>334</span> </span><span class="WHIT">                        </span><span class="NAME">f.push</span><span class="PUNC">(</span><span class="NAME">info.city</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>335</span> </span><span class="WHIT">                        </span><span class="NAME">f.push</span><span class="PUNC">(</span><span class="NAME">info.rank</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>336</span> </span><span class="WHIT">                        </span><span class="NAME">f.push</span><span class="PUNC">(</span><span class="NAME">info.key</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>337</span> </span><span class="WHIT">                        </span><span class="NAME">$</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">val</span><span class="PUNC">(</span><span class="NAME">f.join</span><span class="PUNC">(</span><span class="NAME">options.separator</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>338</span> </span><span class="WHIT">                    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>339</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>340</span> </span><span class="WHIT">                </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>341</span> </span><span class="WHIT">                    </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">test</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>342</span> </span><span class="WHIT">                        </span><span class="NAME">$</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">val</span><span class="PUNC">(</span><span class="NAME">code</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>343</span> </span><span class="WHIT">                    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>344</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>345</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>346</span> </span><span class="WHIT">            
+<span class='line'>347</span>         </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>348</span> </span><span class="WHIT">        </span><span class="COMM">/**
+<span class='line'>349</span>          * Define element as a credit card number.
+<span class='line'>350</span>          *
+<span class='line'>351</span>          * @example $(element).codevro('intlCreditCard', options)
+<span class='line'>352</span>          * @param {Object} options
+<span class='line'>353</span>          * @return {Object}
+<span class='line'>354</span>          */</span><span class="WHIT">
+<span class='line'>355</span> </span><span class="WHIT">        </span><span class="NAME">intlCreditCard</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">options</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>356</span> </span><span class="WHIT">            </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">defaults</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>357</span> </span><span class="WHIT">                </span><span class="NAME">required</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>358</span> </span><span class="WHIT">                </span><span class="NAME">check</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>359</span> </span><span class="WHIT">                </span><span class="NAME">format</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>360</span> </span><span class="WHIT">                </span><span class="NAME">separator</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">' '</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>361</span> </span><span class="WHIT">                </span><span class="NAME">onValidate</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>362</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>363</span> 
+<span class='line'>364</span> </span><span class="WHIT">            </span><span class="NAME">options</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">$.extend</span><span class="PUNC">(</span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">defaults</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">options</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>365</span> 
+<span class='line'>366</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.each</span><span class="PUNC">(</span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>367</span> </span><span class="WHIT">                </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">code</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">cleanNoDigit</span><span class="PUNC">(</span><span class="NAME">$</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">val</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>368</span> </span><span class="WHIT">                </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">luhn</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Luhn</span><span class="PUNC">(</span><span class="NAME">code</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>369</span> 
+<span class='line'>370</span> </span><span class="WHIT">                </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">test</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">luhn.check</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>371</span> 
+<span class='line'>372</span> </span><span class="WHIT">                </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">options.check</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>373</span> </span><span class="WHIT">                    </span><span class="NAME">options.onValidate.apply</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="NAME">test</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>374</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>375</span> </span><span class="WHIT">                
+<span class='line'>376</span>                 </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">test</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>377</span> </span><span class="WHIT">                    </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">options.format</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>378</span> </span><span class="WHIT">                        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">str</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>379</span> </span><span class="WHIT">                        </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">k</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT">
+<span class='line'>380</span> </span><span class="WHIT">                        </span><span class="KEYW">for</span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">c</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">code</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>381</span> </span><span class="WHIT">                            </span><span class="NAME">k</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">k</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="WHIT">
+<span class='line'>382</span> </span><span class="WHIT">                                </span><span class="NAME">str</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">code.charAt</span><span class="PUNC">(</span><span class="NAME">c</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>383</span> 
+<span class='line'>384</span> </span><span class="WHIT">                            </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">k</span><span class="WHIT"> </span><span class="PUNC">%</span><span class="WHIT"> </span><span class="NUMB">4</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>385</span> </span><span class="WHIT">                                </span><span class="NAME">str</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">options.separator</span><span class="WHIT">
+<span class='line'>386</span> </span><span class="WHIT">                            </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>387</span> </span><span class="WHIT">                        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>388</span> 
+<span class='line'>389</span> </span><span class="WHIT">                        </span><span class="NAME">$</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">val</span><span class="PUNC">(</span><span class="NAME">str.replace</span><span class="PUNC">(</span><span class="REGX">/[^0-9]+$/</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>390</span> </span><span class="WHIT">                    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>391</span> </span><span class="WHIT">                    </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>392</span> </span><span class="WHIT">                        </span><span class="NAME">$</span><span class="PUNC">(</span><span class="KEYW">this</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">val</span><span class="PUNC">(</span><span class="NAME">code</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>393</span> </span><span class="WHIT">                    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>394</span> </span><span class="WHIT">                </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>395</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>396</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>397</span> </span><span class="WHIT">        
+<span class='line'>398</span>     </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>399</span> </span><span class="WHIT">        
+<span class='line'>400</span> 
+<span class='line'>401</span>     </span><span class="COMM">/**
+<span class='line'>402</span>      * Codevro allow you to define element as a specific code.
+<span class='line'>403</span>      *
+<span class='line'>404</span>      * @class codevro
+<span class='line'>405</span>      * @memberOf $.fn
+<span class='line'>406</span>      * @param {String} methodOrOptions 
+<span class='line'>407</span>      */</span><span class="WHIT">
+<span class='line'>408</span> </span><span class="WHIT">    </span><span class="NAME">$.fn.codevro</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">methodOrOptions</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>409</span> </span><span class="WHIT">        </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="WHIT"> </span><span class="NAME">methods</span><span class="PUNC">[</span><span class="NAME">methodOrOptions</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>410</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">methods</span><span class="PUNC">[</span><span class="WHIT"> </span><span class="NAME">methodOrOptions</span><span class="WHIT"> </span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">apply</span><span class="PUNC">(</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">Array.prototype.slice.call</span><span class="PUNC">(</span><span class="WHIT"> </span><span class="NAME">arguments</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>411</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>412</span> </span><span class="WHIT">        </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="WHIT"> </span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">methodOrOptions</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="STRN">'object'</span><span class="WHIT"> </span><span class="PUNC">||</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="WHIT"> </span><span class="NAME">methodOrOptions</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>413</span> </span><span class="WHIT">            </span><span class="COMM">// Default to "init"</span><span class="WHIT">
+<span class='line'>414</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">methods.init.apply</span><span class="PUNC">(</span><span class="WHIT"> </span><span class="KEYW">this</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">arguments</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>415</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>416</span> </span><span class="WHIT">        </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>417</span> </span><span class="WHIT">            </span><span class="NAME">$.error</span><span class="PUNC">(</span><span class="WHIT"> </span><span class="STRN">'Method '</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT">  </span><span class="NAME">method</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">' does not exist on jQuery.codevro'</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>418</span> </span><span class="WHIT">        </span><span class="PUNC">}</span><span class="WHIT">    
+<span class='line'>419</span>     </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>420</span> 
+<span class='line'>421</span> 
 <span class='line'>422</span> 
-<span class='line'>423</span> </span><span class="WHIT">                     </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">intC</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">(</span><span class="NAME">intCProv</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">Math.pow</span><span class="PUNC">(</span><span class="NUMB">2</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">intCProv</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NUMB">10</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NUMB">9</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">%</span><span class="WHIT"> </span><span class="NUMB">10</span><span class="PUNC">)</span><span class="WHIT">
-<span class='line'>424</span> </span><span class="WHIT">                     </span><span class="NAME">intC</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">intCProv</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">18</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">intCProv</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NUMB">25</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT">
+<span class='line'>423</span> 
+<span class='line'>424</span> 
 <span class='line'>425</span> 
-<span class='line'>426</span> </span><span class="WHIT">                     </span><span class="NAME">c</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">String</span><span class="PUNC">(</span><span class="NAME">intC</span><span class="PUNC">)</span><span class="WHIT">
-<span class='line'>427</span> </span><span class="WHIT">                 </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>426</span> 
+<span class='line'>427</span> 
 <span class='line'>428</span> 
-<span class='line'>429</span> </span><span class="WHIT">                 </span><span class="NAME">strAccount</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">c</span><span class="WHIT">
-<span class='line'>430</span> </span><span class="WHIT">             </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>429</span> 
+<span class='line'>430</span> 
 <span class='line'>431</span> 
-<span class='line'>432</span> </span><span class="WHIT">             </span><span class="NAME">strRib</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getCodeBanque</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
-<span class='line'>433</span> </span><span class="WHIT">             </span><span class="NAME">strRib</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getCodeGuichet</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
-<span class='line'>434</span> </span><span class="WHIT">             </span><span class="NAME">strRib</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">strAccount</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
-<span class='line'>435</span> </span><span class="WHIT">             </span><span class="NAME">strRib</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getCleRib</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>432</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>433</span>      * @lends _private_methods
+<span class='line'>434</span>      */</span><span class="WHIT">
+<span class='line'>435</span> 
 <span class='line'>436</span> 
-<span class='line'>437</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">modulo</span><span class="PUNC">(</span><span class="NAME">strRib</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">97</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">this.length</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">23</span><span class="WHIT">
-<span class='line'>438</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>439</span> 
-<span class='line'>440</span> </span><span class="WHIT">         </span><span class="NAME">this.getCodeBanque</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>441</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.value.substr</span><span class="PUNC">(</span><span class="NUMB">0</span><span class="WHIT"> </span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">5</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>442</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>443</span> 
-<span class='line'>444</span> </span><span class="WHIT">         </span><span class="NAME">this.getCodeGuichet</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>445</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.value.substr</span><span class="PUNC">(</span><span class="NUMB">5</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">5</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>446</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>447</span> 
-<span class='line'>448</span> </span><span class="WHIT">         </span><span class="NAME">this.getNumeroDeCompte</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>449</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.value.substr</span><span class="PUNC">(</span><span class="NUMB">10</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">11</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>450</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>451</span> 
-<span class='line'>452</span> </span><span class="WHIT">         </span><span class="NAME">this.getCleRib</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>453</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.value.substr</span><span class="PUNC">(</span><span class="NUMB">21</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">2</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
-<span class='line'>454</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>455</span> </span><span class="WHIT">     </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>437</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>438</span>      * The Luhn algorithm.
+<span class='line'>439</span>      *
+<span class='line'>440</span>      * @name Luhn
+<span class='line'>441</span>      * @class Luhn
+<span class='line'>442</span>      * @constructor
+<span class='line'>443</span>      * @param {String} str Code value
+<span class='line'>444</span>      */</span><span class="WHIT">
+<span class='line'>445</span> </span><span class="WHIT">     </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">Luhn</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">str</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>446</span> </span><span class="WHIT">         </span><span class="NAME">this.luhnValue</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>447</span> </span><span class="WHIT">         </span><span class="NAME">this.luhnLength</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT">
+<span class='line'>448</span> 
+<span class='line'>449</span> </span><span class="WHIT">         </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">str</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">'string'</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">str.length</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>450</span> </span><span class="WHIT">             </span><span class="NAME">this.luhnValue</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">str</span><span class="WHIT">
+<span class='line'>451</span> </span><span class="WHIT">             </span><span class="NAME">this.luhnLength</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">str.length</span><span class="WHIT">
+<span class='line'>452</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>453</span> </span><span class="WHIT">         </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>454</span> </span><span class="WHIT">             </span><span class="KEYW">throw</span><span class="WHIT"> </span><span class="STRN">'Code must be a non null string.'</span><span class="WHIT">
+<span class='line'>455</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
 <span class='line'>456</span> 
-<span class='line'>457</span> 
-<span class='line'>458</span> 
-<span class='line'>459</span> 
-<span class='line'>460</span> </span><span class="WHIT">     </span><span class="COMM">/**
-<span class='line'>461</span>       * Modulo for big value.
-<span class='line'>462</span>       *
-<span class='line'>463</span>       * Avoiding some issues with javascript and modulo calculus of big value.
-<span class='line'>464</span>       *
-<span class='line'>465</span>       * See http://stackoverflow.com/questions/929910/modulo-in-javascript-large-number
-<span class='line'>466</span>       *
-<span class='line'>467</span>       * @lends _private_methods
-<span class='line'>468</span>       * @param {String} divident
-<span class='line'>469</span>       * @param {Number} divisor
-<span class='line'>470</span>       */</span><span class="WHIT">
-<span class='line'>471</span> </span><span class="WHIT">     </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">modulo</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">divident</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">divisor</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>472</span> </span><span class="WHIT">         </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">cDivident</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
-<span class='line'>473</span> </span><span class="WHIT">         </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">cRest</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
-<span class='line'>474</span> 
-<span class='line'>475</span> </span><span class="WHIT">         </span><span class="NAME">divident</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">divident</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
-<span class='line'>476</span> 
-<span class='line'>477</span> </span><span class="WHIT">         </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">divident</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>478</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">cChar</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">divident</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="WHIT">
-<span class='line'>479</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">cOperator</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">cRest</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">cDivident</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">cChar</span><span class="WHIT">
+<span class='line'>457</span> </span><span class="WHIT">         </span><span class="NAME">this.toString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>458</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.luhnValue</span><span class="WHIT">
+<span class='line'>459</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>460</span> 
+<span class='line'>461</span> </span><span class="WHIT">         </span><span class="COMM">/**
+<span class='line'>462</span>           * Compute modulo 10 using the Luhn algorithm.
+<span class='line'>463</span>           *
+<span class='line'>464</span>           * @return {Number} The modulo 10 result
+<span class='line'>465</span>           */</span><span class="WHIT">
+<span class='line'>466</span> </span><span class="WHIT">         </span><span class="NAME">this.modulo10</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>467</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">code</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.luhnValue.split</span><span class="PUNC">(</span><span class="STRN">''</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">reverse</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>468</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">sum</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT">
+<span class='line'>469</span> 
+<span class='line'>470</span> </span><span class="WHIT">             </span><span class="KEYW">for</span><span class="PUNC">(</span><span class="NAME">i</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">code</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>471</span> </span><span class="WHIT">                 </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">digit</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">parseInt</span><span class="PUNC">(</span><span class="NAME">code</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>472</span> 
+<span class='line'>473</span> </span><span class="WHIT">                 </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="PUNC">(</span><span class="NAME">parseInt</span><span class="PUNC">(</span><span class="NAME">i</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">%</span><span class="WHIT"> </span><span class="NUMB">2</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>474</span> </span><span class="WHIT">                     </span><span class="NAME">digit</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">digit</span><span class="WHIT"> </span><span class="PUNC">*</span><span class="WHIT"> </span><span class="NUMB">2</span><span class="WHIT">
+<span class='line'>475</span> 
+<span class='line'>476</span> </span><span class="WHIT">                     </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">digit</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">9</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>477</span> </span><span class="WHIT">                         </span><span class="NAME">digit</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">digit</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NUMB">9</span><span class="WHIT">
+<span class='line'>478</span> </span><span class="WHIT">                     </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>479</span> </span><span class="WHIT">                 </span><span class="PUNC">}</span><span class="WHIT">
 <span class='line'>480</span> 
-<span class='line'>481</span> </span><span class="WHIT">             </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="WHIT"> </span><span class="NAME">cOperator</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NAME">parseInt</span><span class="PUNC">(</span><span class="NAME">divisor</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>482</span> </span><span class="WHIT">                 </span><span class="NAME">cDivident</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">cChar</span><span class="WHIT">
-<span class='line'>483</span> </span><span class="WHIT">             </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>484</span> </span><span class="WHIT">             </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>485</span> </span><span class="WHIT">                 </span><span class="NAME">cRest</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">cOperator</span><span class="WHIT"> </span><span class="PUNC">%</span><span class="WHIT"> </span><span class="NAME">divisor</span><span class="WHIT">
-<span class='line'>486</span> </span><span class="WHIT">                 </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="WHIT"> </span><span class="NAME">cRest</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>487</span> </span><span class="WHIT">                     </span><span class="NAME">cRest</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
-<span class='line'>488</span> </span><span class="WHIT">                 </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>489</span> </span><span class="WHIT">                 </span><span class="NAME">cDivident</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
-<span class='line'>490</span> </span><span class="WHIT">             </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>491</span> 
-<span class='line'>492</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>493</span> </span><span class="WHIT">         </span><span class="NAME">cRest</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">cDivident</span><span class="WHIT">
-<span class='line'>494</span> </span><span class="WHIT">         
-<span class='line'>495</span>          </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">cRest</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>496</span> </span><span class="WHIT">             </span><span class="NAME">cRest</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT">
-<span class='line'>497</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>481</span> </span><span class="WHIT">                 </span><span class="NAME">sum</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">digit</span><span class="WHIT"> 
+<span class='line'>482</span>              </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>483</span> 
+<span class='line'>484</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">sum</span><span class="WHIT"> </span><span class="PUNC">%</span><span class="WHIT"> </span><span class="NUMB">10</span><span class="WHIT">
+<span class='line'>485</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>486</span> 
+<span class='line'>487</span> </span><span class="WHIT">         </span><span class="COMM">/**
+<span class='line'>488</span>           * Check if the code if valid or not.
+<span class='line'>489</span>           *
+<span class='line'>490</span>           * @return {Number} True if code is valid
+<span class='line'>491</span>           */</span><span class="WHIT">
+<span class='line'>492</span> </span><span class="WHIT">         </span><span class="NAME">this.check</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>493</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">this.modulo10</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>494</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>495</span> </span><span class="WHIT">     </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>496</span> 
+<span class='line'>497</span> 
 <span class='line'>498</span> 
-<span class='line'>499</span> </span><span class="WHIT">         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">cRest</span><span class="WHIT">
-<span class='line'>500</span> </span><span class="WHIT">     </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>501</span> 
-<span class='line'>502</span> 
-<span class='line'>503</span> </span><span class="WHIT">     </span><span class="COMM">/**
-<span class='line'>504</span>       * Remove form given string all non digit characters.
-<span class='line'>505</span>       *
-<span class='line'>506</span>       * @lends _private_methods
-<span class='line'>507</span>       * @param {String} str The string to clean
-<span class='line'>508</span>       * @return {String} Cleaned string
-<span class='line'>509</span>       */</span><span class="WHIT">
-<span class='line'>510</span> </span><span class="WHIT">     </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">cleanNoDigit</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">str</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
-<span class='line'>511</span> </span><span class="WHIT">         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">str.replace</span><span class="PUNC">(</span><span class="REGX">/[^0-9]/g</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">)</span><span class="WHIT">
-<span class='line'>512</span> </span><span class="WHIT">     </span><span class="PUNC">}</span><span class="WHIT">
-<span class='line'>513</span> 
-<span class='line'>514</span> </span><span class="WHIT"> </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">(</span><span class="NAME">jQuery</span><span class="PUNC">)</span><span class="WHIT">
-<span class='line'>515</span> </span></pre></body></html>
+<span class='line'>499</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>500</span>      * RIB
+<span class='line'>501</span>      *
+<span class='line'>502</span>      * @name Rib
+<span class='line'>503</span>      * @class Rib
+<span class='line'>504</span>      * @constructor
+<span class='line'>505</span>      * @param {String} str Code value
+<span class='line'>506</span>      */</span><span class="WHIT">
+<span class='line'>507</span> </span><span class="WHIT">     </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">Rib</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">str</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>508</span> </span><span class="WHIT">         </span><span class="NAME">this.value</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>509</span> </span><span class="WHIT">         </span><span class="NAME">this.length</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT">
+<span class='line'>510</span> 
+<span class='line'>511</span> </span><span class="WHIT">         </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">str</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">'string'</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">str.length</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>512</span> </span><span class="WHIT">             </span><span class="NAME">this.value</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">String</span><span class="PUNC">(</span><span class="NAME">str</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>513</span> </span><span class="WHIT">             </span><span class="NAME">this.length</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">str.length</span><span class="WHIT">
+<span class='line'>514</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>515</span> </span><span class="WHIT">         </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>516</span> </span><span class="WHIT">             </span><span class="KEYW">throw</span><span class="WHIT"> </span><span class="STRN">'Code must be a non null string.'</span><span class="WHIT">
+<span class='line'>517</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>518</span> 
+<span class='line'>519</span> </span><span class="WHIT">         </span><span class="NAME">this.toString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>520</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.value</span><span class="WHIT">
+<span class='line'>521</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>522</span> 
+<span class='line'>523</span> </span><span class="WHIT">         </span><span class="COMM">/**
+<span class='line'>524</span>           * Check if the code if valid or not.
+<span class='line'>525</span>           *
+<span class='line'>526</span>           * @return {Number} True if code is valid
+<span class='line'>527</span>           */</span><span class="WHIT">
+<span class='line'>528</span> </span><span class="WHIT">         </span><span class="NAME">this.check</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>529</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">strAccount</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>530</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">str</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getNumeroDeCompte</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>531</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">strRib</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>532</span> 
+<span class='line'>533</span> </span><span class="WHIT">             </span><span class="KEYW">for</span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">str</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>534</span> </span><span class="WHIT">                 </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">c</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">str</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="WHIT">
+<span class='line'>535</span> 
+<span class='line'>536</span> </span><span class="WHIT">                 </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">c.match</span><span class="PUNC">(</span><span class="REGX">/[^0-9]/</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>537</span> </span><span class="WHIT">                     </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">intCProv</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">c.charCodeAt</span><span class="PUNC">(</span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NUMB">64</span><span class="WHIT">
+<span class='line'>538</span> 
+<span class='line'>539</span> </span><span class="WHIT">                     </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">intC</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">(</span><span class="NAME">intCProv</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">Math.pow</span><span class="PUNC">(</span><span class="NUMB">2</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">intCProv</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NUMB">10</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">/</span><span class="WHIT"> </span><span class="NUMB">9</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">%</span><span class="WHIT"> </span><span class="NUMB">10</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>540</span> </span><span class="WHIT">                     </span><span class="NAME">intC</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">intCProv</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">18</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">intCProv</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NUMB">25</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT">
+<span class='line'>541</span> 
+<span class='line'>542</span> </span><span class="WHIT">                     </span><span class="NAME">c</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">String</span><span class="PUNC">(</span><span class="NAME">intC</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>543</span> </span><span class="WHIT">                 </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>544</span> 
+<span class='line'>545</span> </span><span class="WHIT">                 </span><span class="NAME">strAccount</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">c</span><span class="WHIT">
+<span class='line'>546</span> </span><span class="WHIT">             </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>547</span> 
+<span class='line'>548</span> </span><span class="WHIT">             </span><span class="NAME">strRib</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getCodeBanque</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>549</span> </span><span class="WHIT">             </span><span class="NAME">strRib</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getCodeGuichet</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>550</span> </span><span class="WHIT">             </span><span class="NAME">strRib</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">strAccount</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>551</span> </span><span class="WHIT">             </span><span class="NAME">strRib</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.getCleRib</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>552</span> 
+<span class='line'>553</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">modulo</span><span class="PUNC">(</span><span class="NAME">strRib</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">97</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">this.length</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">23</span><span class="WHIT">
+<span class='line'>554</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>555</span> 
+<span class='line'>556</span> </span><span class="WHIT">         </span><span class="NAME">this.getCodeBanque</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>557</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.value.substr</span><span class="PUNC">(</span><span class="NUMB">0</span><span class="WHIT"> </span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">5</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>558</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>559</span> 
+<span class='line'>560</span> </span><span class="WHIT">         </span><span class="NAME">this.getCodeGuichet</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>561</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.value.substr</span><span class="PUNC">(</span><span class="NUMB">5</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">5</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>562</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>563</span> 
+<span class='line'>564</span> </span><span class="WHIT">         </span><span class="NAME">this.getNumeroDeCompte</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>565</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.value.substr</span><span class="PUNC">(</span><span class="NUMB">10</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">11</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>566</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>567</span> 
+<span class='line'>568</span> </span><span class="WHIT">         </span><span class="NAME">this.getCleRib</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>569</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.value.substr</span><span class="PUNC">(</span><span class="NUMB">21</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">2</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>570</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>571</span> </span><span class="WHIT">     </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>572</span> 
+<span class='line'>573</span> 
+<span class='line'>574</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>575</span>      * NIR
+<span class='line'>576</span>      *
+<span class='line'>577</span>      * @name Nir
+<span class='line'>578</span>      * @class Nir
+<span class='line'>579</span>      * @constructor
+<span class='line'>580</span>      * @param {String} str Code value
+<span class='line'>581</span>      */</span><span class="WHIT">
+<span class='line'>582</span> </span><span class="WHIT">     </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">Nir</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">str</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>583</span> </span><span class="WHIT">         </span><span class="NAME">this.value</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>584</span> </span><span class="WHIT">         </span><span class="NAME">this.length</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT">
+<span class='line'>585</span> 
+<span class='line'>586</span> </span><span class="WHIT">         </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="KEYW">typeof</span><span class="WHIT"> </span><span class="NAME">str</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">'string'</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">str.length</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>587</span> </span><span class="WHIT">             </span><span class="NAME">this.value</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">String</span><span class="PUNC">(</span><span class="NAME">str</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>588</span> </span><span class="WHIT">             </span><span class="NAME">this.length</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">str.length</span><span class="WHIT">
+<span class='line'>589</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>590</span> </span><span class="WHIT">         </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>591</span> </span><span class="WHIT">             </span><span class="KEYW">throw</span><span class="WHIT"> </span><span class="STRN">'Code must be a non null string.'</span><span class="WHIT">
+<span class='line'>592</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>593</span> 
+<span class='line'>594</span> </span><span class="WHIT">         </span><span class="NAME">this.toString</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>595</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.value</span><span class="WHIT">
+<span class='line'>596</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>597</span> 
+<span class='line'>598</span> </span><span class="WHIT">         </span><span class="COMM">/**
+<span class='line'>599</span>           * Check if the code if valid or not.
+<span class='line'>600</span>           *
+<span class='line'>601</span>           * @return {Number} True if code is valid
+<span class='line'>602</span>           */</span><span class="WHIT">
+<span class='line'>603</span> </span><span class="WHIT">         </span><span class="NAME">this.check</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>604</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">key</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.value.substr</span><span class="PUNC">(</span><span class="NUMB">13</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">2</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>605</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">strNir</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.adapt</span><span class="PUNC">(</span><span class="NAME">this.value</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>606</span> </span><span class="WHIT">             </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NUMB">97</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NAME">modulo</span><span class="PUNC">(</span><span class="NAME">strNir</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">97</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NAME">key</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="NAME">this.length</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">15</span><span class="WHIT">
+<span class='line'>607</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>608</span> 
+<span class='line'>609</span> </span><span class="WHIT">         </span><span class="COMM">/**
+<span class='line'>610</span>           * Change the code to follow some rules used for Corsica. In Corsica,
+<span class='line'>611</span>           * two letters are used into the code: A and B. This letter must be
+<span class='line'>612</span>           * replaced by a zero and in case of A, substract by 1.000.000 or
+<span class='line'>613</span>           * 2.000.000 for B.
+<span class='line'>614</span>           *
+<span class='line'>615</span>           * @param {String} str The code to adapt
+<span class='line'>616</span>           * @return {String} The adapted code
+<span class='line'>617</span>           */</span><span class="WHIT">
+<span class='line'>618</span> </span><span class="WHIT">         </span><span class="NAME">this.adapt</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">str</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>619</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">str</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">str.substr</span><span class="PUNC">(</span><span class="NUMB">0</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">13</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>620</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">substract</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT">
+<span class='line'>621</span> </span><span class="WHIT">             </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">str.match</span><span class="PUNC">(</span><span class="REGX">/[aA]g/</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="NAME">substract</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">1000000</span><span class="WHIT">
+<span class='line'>622</span> </span><span class="WHIT">             </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">str.match</span><span class="PUNC">(</span><span class="REGX">/[bB]g/</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="NAME">substract</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">2000000</span><span class="WHIT">
+<span class='line'>623</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">int</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">parseInt</span><span class="PUNC">(</span><span class="NAME">str.replace</span><span class="PUNC">(</span><span class="REGX">/ABab/g</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">'0'</span><span class="PUNC">)</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>624</span> 
+<span class='line'>625</span> </span><span class="WHIT">             </span><span class="KEYW">if</span><span class="PUNC">(</span><span class="NAME">substract</span><span class="WHIT"> </span><span class="PUNC">></span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>626</span> </span><span class="WHIT">                 </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">String</span><span class="PUNC">(</span><span class="NAME">int</span><span class="WHIT"> </span><span class="PUNC">-</span><span class="WHIT"> </span><span class="NAME">substract</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>627</span> </span><span class="WHIT">             </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>628</span> </span><span class="WHIT">             </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>629</span> </span><span class="WHIT">                 </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">str</span><span class="WHIT">
+<span class='line'>630</span> </span><span class="WHIT">             </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>631</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>632</span> 
+<span class='line'>633</span> </span><span class="WHIT">         </span><span class="COMM">/**
+<span class='line'>634</span>           * Returns some structured informations about this NIR code.
+<span class='line'>635</span>           *
+<span class='line'>636</span>           * Informations returned are:
+<span class='line'>637</span>           *
+<span class='line'>638</span>           * &lt;ul>
+<span class='line'>639</span>           * &lt;li>gender: a string like man or woman.
+<span class='line'>640</span>           * &lt;li>year: a 2-digits string for the birth year.
+<span class='line'>641</span>           * &lt;li>month: Birth month in two digits.
+<span class='line'>642</span>           * &lt;li>department: the "département" code.
+<span class='line'>643</span>           * &lt;li>city: City of birth code.
+<span class='line'>644</span>           * &lt;li>rank: Ranking among the list of births
+<span class='line'>645</span>           * &lt;li>key: The verification key 
+<span class='line'>646</span>           * &lt;/ul>
+<span class='line'>647</span>           * @return {Object}
+<span class='line'>648</span>           */</span><span class="WHIT">
+<span class='line'>649</span> </span><span class="WHIT">         </span><span class="NAME">this.getInformation</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>650</span> </span><span class="WHIT">            </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>651</span> </span><span class="WHIT">                </span><span class="NAME">gender</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">this.value.charAt</span><span class="PUNC">(</span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">'1'</span><span class="WHIT"> </span><span class="PUNC">?</span><span class="WHIT"> </span><span class="STRN">'man'</span><span class="WHIT"> </span><span class="PUNC">:</span><span class="WHIT"> </span><span class="STRN">'woman'</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>652</span> </span><span class="WHIT">                </span><span class="NAME">year</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">this.value.substr</span><span class="PUNC">(</span><span class="NUMB">1</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">2</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>653</span> </span><span class="WHIT">                </span><span class="NAME">month</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">this.value.substr</span><span class="PUNC">(</span><span class="NUMB">3</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">2</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>654</span> </span><span class="WHIT">                </span><span class="NAME">department</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">this.value.substr</span><span class="PUNC">(</span><span class="NUMB">5</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">2</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>655</span> </span><span class="WHIT">                </span><span class="NAME">city</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">this.value.substr</span><span class="PUNC">(</span><span class="NUMB">7</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">3</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>656</span> </span><span class="WHIT">                </span><span class="NAME">rank</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">this.value.substr</span><span class="PUNC">(</span><span class="NUMB">10</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NUMB">3</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>657</span> </span><span class="WHIT">                </span><span class="NAME">key</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="NAME">this.value.substr</span><span class="PUNC">(</span><span class="NUMB">13</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>658</span> </span><span class="WHIT">            </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>659</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>660</span> </span><span class="WHIT">     </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>661</span> 
+<span class='line'>662</span> 
+<span class='line'>663</span> </span><span class="WHIT">     </span><span class="COMM">/**
+<span class='line'>664</span>       * Modulo for big value.
+<span class='line'>665</span>       *
+<span class='line'>666</span>       * Avoiding some issues with javascript and modulo calculus of big value.
+<span class='line'>667</span>       *
+<span class='line'>668</span>       * See http://stackoverflow.com/questions/929910/modulo-in-javascript-large-number
+<span class='line'>669</span>       *
+<span class='line'>670</span>       * @lends _private_methods
+<span class='line'>671</span>       * @param {String} divident
+<span class='line'>672</span>       * @param {Number} divisor
+<span class='line'>673</span>       */</span><span class="WHIT">
+<span class='line'>674</span> </span><span class="WHIT">     </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">modulo</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">divident</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">divisor</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>675</span> </span><span class="WHIT">         </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">cDivident</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>676</span> </span><span class="WHIT">         </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">cRest</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>677</span> 
+<span class='line'>678</span> </span><span class="WHIT">         </span><span class="NAME">divident</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">divident</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>679</span> 
+<span class='line'>680</span> </span><span class="WHIT">         </span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">divident</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>681</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">cChar</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">divident</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="WHIT">
+<span class='line'>682</span> </span><span class="WHIT">             </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">cOperator</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">cRest</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">cDivident</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">cChar</span><span class="WHIT">
+<span class='line'>683</span> 
+<span class='line'>684</span> </span><span class="WHIT">             </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="WHIT"> </span><span class="NAME">cOperator</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NAME">parseInt</span><span class="PUNC">(</span><span class="NAME">divisor</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>685</span> </span><span class="WHIT">                 </span><span class="NAME">cDivident</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">cChar</span><span class="WHIT">
+<span class='line'>686</span> </span><span class="WHIT">             </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>687</span> </span><span class="WHIT">             </span><span class="KEYW">else</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>688</span> </span><span class="WHIT">                 </span><span class="NAME">cRest</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">cOperator</span><span class="WHIT"> </span><span class="PUNC">%</span><span class="WHIT"> </span><span class="NAME">divisor</span><span class="WHIT">
+<span class='line'>689</span> </span><span class="WHIT">                 </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="WHIT"> </span><span class="NAME">cRest</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT"> </span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>690</span> </span><span class="WHIT">                     </span><span class="NAME">cRest</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>691</span> </span><span class="WHIT">                 </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>692</span> </span><span class="WHIT">                 </span><span class="NAME">cDivident</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT">
+<span class='line'>693</span> </span><span class="WHIT">             </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>694</span> 
+<span class='line'>695</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>696</span> </span><span class="WHIT">         </span><span class="NAME">cRest</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="STRN">''</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">cDivident</span><span class="WHIT">
+<span class='line'>697</span> </span><span class="WHIT">         
+<span class='line'>698</span>          </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">cRest</span><span class="WHIT"> </span><span class="PUNC">==</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>699</span> </span><span class="WHIT">             </span><span class="NAME">cRest</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="WHIT">
+<span class='line'>700</span> </span><span class="WHIT">         </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>701</span> 
+<span class='line'>702</span> </span><span class="WHIT">         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">cRest</span><span class="WHIT">
+<span class='line'>703</span> </span><span class="WHIT">     </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>704</span> 
+<span class='line'>705</span> 
+<span class='line'>706</span> </span><span class="WHIT">     </span><span class="COMM">/**
+<span class='line'>707</span>       * Remove form given string all non digit characters.
+<span class='line'>708</span>       *
+<span class='line'>709</span>       * @lends _private_methods
+<span class='line'>710</span>       * @param {String} str The string to clean
+<span class='line'>711</span>       * @return {String} Cleaned string
+<span class='line'>712</span>       */</span><span class="WHIT">
+<span class='line'>713</span> </span><span class="WHIT">     </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">cleanNoDigit</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">str</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>714</span> </span><span class="WHIT">         </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">str.replace</span><span class="PUNC">(</span><span class="REGX">/[^0-9]/g</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">''</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>715</span> </span><span class="WHIT">     </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>716</span> 
+<span class='line'>717</span> </span><span class="WHIT"> </span><span class="PUNC">}</span><span class="PUNC">)</span><span class="PUNC">(</span><span class="NAME">jQuery</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>718</span> </span></pre></body></html>
