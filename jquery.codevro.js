@@ -164,7 +164,7 @@
                 format: true,
                 separator: ' ',
                 onValidate: function(){},
-                getPlaceRank: function(){}
+                getInformation: function(){}
             }
 
             options = $.extend({}, defaults, options)
@@ -181,7 +181,7 @@
                     options.onValidate.apply(this, [test])
                 }
                 
-                options.getPlaceRank.apply(this, [code.charAt(12)])
+                options.getInformation.apply(this, [{placeRank: code.charAt(12)}])
 
                 if(options.format){
                     if(test){
@@ -235,10 +235,7 @@
                 format: true,
                 separator: ' ',
                 onValidate: function(){},
-                getCodeBanque: function(){},
-                getCodeGuichet: function(){},
-                getNumeroDeCompte: function(){},
-                getCleRib: function(){}
+                getInformation: function(){}
             }
 
             options = $.extend({}, defaults, options)
@@ -254,10 +251,11 @@
                     options.onValidate.apply(this, [test])
                 }
 
-                options.getCodeBanque.apply(this, [rib.getCodeBanque()])
-                options.getCodeGuichet.apply(this, [rib.getCodeGuichet()])
-                options.getNumeroDeCompte.apply(this, [rib.getNumeroDeCompte()])
-                options.getCleRib.apply(this, [rib.getCleRib()])
+                options.getInformation.apply(this, [{
+                    codeBanque: rib.getCodeBanque(),
+                    codeGuichet: rib.getCodeGuichet(),
+                    numeroDeCompte: rib.getNumeroDeCompte(),
+                    cleRib: rib.getCleRib()}])
 
                 if(options.format){
                     if(test){
