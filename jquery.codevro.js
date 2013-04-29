@@ -395,6 +395,58 @@
             })
         },
         
+        /**
+         * Define element as US SSN.
+         *
+         * @example $(element).codevro('usSsn', options)
+         * @param {Object} options
+         * @return {Object}
+         */
+        usSsn: function(options){
+            var defaults = {
+                required: false,
+                check: true,
+                format: true,
+                separator: '-',
+                onValidate: function(){},
+                get
+            }
+
+            options = $.extend({}, defaults, options)
+
+            return this.each(function(){
+                var code = cleanNoDigit($(this).val())
+                var ssn = new Ssn(code)
+                var test = ssn.check()
+
+                if(options.check){
+                    options.onValidate.apply(this, [test])
+                }
+                
+                options.getInformation.apply(this, [ssn.getInformation()])
+                
+                if(test){
+                    if(options.format){
+                        var str = ''
+                        var k = 0
+                        for(var c in code) {
+                            k = k + 1
+                                str += code.charAt(c) + ''
+
+                            if(k % 4 == 0) {
+                                str += options.separator
+                            }
+                        }
+
+                        $(this).val(str.replace(/[^0-9]+$/, ''))
+                    }
+                    else {
+                        $(this).val(code)
+                    }
+                }
+            })
+        },
+        
     }
         
 
@@ -655,6 +707,118 @@
                 city: this.value.substr(7, 3) + '',
                 rank: this.value.substr(10, 3) + '',
                 key: this.value.substr(13) + ''
+            }
+         }
+     }
+    
+     
+     
+     /**
+      * SSN
+      *
+      * @name Ssn
+      * @class Ssn
+      * @constructor
+      * @param {String} str Code value
+      */
+     var Ssn = function(str){
+         this.value = ''
+
+         if(typeof str == 'string' && str.length == 9){
+             this.value = new String(str)
+         }
+         else {
+             throw 'Code must be a nine digits string.'
+         }
+
+         this.toString = function(){
+             return this.value
+         }
+
+         /**
+          * Check if the code if valid or not.
+          *
+          * @return {Number} True if code is valid
+          */
+         this.check = function(){
+             var arrOnlyForAds = [
+                 '987654320',
+                 '987654321',
+                 '987654322',
+                 '987654323',
+                 '987654324',
+                 '987654325',
+                 '987654326',
+                 '987654327',
+                 '987654328',
+                 '987654329'
+             ]
+
+             var arrInvalids = [
+                 '002281852',
+                 '042103580',
+                 '062360749',
+                 '078051120',
+                 '095073645',
+                 '128036045',
+                 '135016629',
+                 '141186941',
+                 '165167999',
+                 '165187999',
+                 '165207999',
+                 '165227999',
+                 '165247999',
+                 '189092294',
+                 '212097694',
+                 '212099999',
+                 '306302348',
+                 '308125070',
+                 '468288779',
+                 '549241889'
+             ]
+
+             if(this.getInformation().area == '000') {
+                 return false
+             } 
+             else if(this.getInformation().group == '00') {
+                 return false
+             }
+             else if(this.getInformation().serial == '0000') {
+                 return false
+             } 
+             else if(this.getInformation().area == '666') {
+                 return false
+             } 
+             else if($.inArray(this.value, arrInvalids) != -1) {
+                 return false
+             } 
+             else if($.inArray(this.value, arrOnlyForAds) != -1) {
+                 return false
+             } 
+             // pas sûr de moi, je dois vérifier mes sources…
+             else if(this.getInformation().area >= '900' && this.getInformation().area <= '999') {
+                 return false
+             }
+             else {
+                 return true
+             }
+
+
+         }
+
+
+         /**
+          * Returns some structured informations about this SSN.
+          *
+          * Informations returned are: Area, group and serial part of the number.
+          *
+          * @return {Object}
+          */
+         this.getInformation = function(){
+            return {
+                area: this.value.substr(0, 3),
+                group: this.value.substr(3, 2) + '',
+                serial: this.value.substr(5) + ''
             }
          }
      }
